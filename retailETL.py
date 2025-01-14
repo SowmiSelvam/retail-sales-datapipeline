@@ -127,7 +127,7 @@ df_perfect_rank.show()
 
 # COMMAND ----------
 
-delta_table_path = "s3a://{aws_access_key}:{aws_secret_key}@{bucket_name}/delta/rank"
+delta_table_path = "/mnt/delta/retail_sales_ranked/"
 df_perfect_rank.write.format("delta").mode("overwrite").save(delta_table_path)
 
 # COMMAND ----------
@@ -140,7 +140,7 @@ display(df)
 
 # COMMAND ----------
 
-dbutils.fs.ls(mount_point)
+dbutils.fs.ls(f'{mount_point}/delta')
 
 # COMMAND ----------
 
